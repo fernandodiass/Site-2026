@@ -7,7 +7,7 @@ export default function Services() {
       title: "Dashboards de Alta Performance",
       description: "Interfaces analíticas ultravelozes que transformam dados complexos em decisões estratégicas em tempo real.",
       techs: ["Next.js 15", "TanStack Query", "Recharts", "RESTfuL API"],
-      icon: <BarChart3 className="text-blue-500" size={32} />,
+      icon: <BarChart3 className="text-purple-500" size={32} />,
     },
     {
       title: "Landing Pages de Integração",
@@ -18,8 +18,8 @@ export default function Services() {
     {
       title: "Engenharia de Prompts & IA",
       description: "Implementação de inteligência artificial e modelos de LLM personalizados para otimizar processos e atendimento.",
-      techs: ["LangChain", "OpenAI API", "Gemini Pro", "Vector Databases"],
-      icon: <BrainCircuit className="text-purple-500" size={32} />,
+      techs: ["LangChain", "API GROQ/OPEMAI/GEMINI", "Vector Databases"],
+      icon: <BrainCircuit className="text-blue-500" size={32} />,
     },
   ];
 
@@ -30,21 +30,18 @@ export default function Services() {
           <div 
             key={index} 
             className="p-8 rounded-2xl border border-white/5 bg-zinc-900/40 hover:border-white/10 hover:bg-zinc-900/60 transition-all group flex flex-col h-full"
-          >
-            {/* Ícone */}
+          >           
             <div className="mb-6 p-3 w-fit rounded-xl bg-white/5 group-hover:bg-white/10 transition-colors">
               {service.icon}
             </div>
-
-            {/* Conteúdo */}
+            
             <h3 className="text-xl font-bold mb-3 text-zinc-100">
               {service.title}
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed mb-6 grow">
               {service.description}
             </p>
-
-            {/* Tecnologias (Badges) */}
+            
             <div className="flex flex-wrap gap-2 mt-auto">
               {service.techs.map((tech) => (
                 <span 

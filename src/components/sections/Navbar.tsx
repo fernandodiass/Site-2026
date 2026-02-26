@@ -18,7 +18,7 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Início", href: "#inicio" }, // Mudei de "#" para "#inicio" para ser mais preciso
+    { name: "Início", href: "#inicio" }, 
     { name: "Serviços", href: "#servicos" },
     { name: "Projetos", href: "#projetos" },
     { name: "Contato", href: "#contato" },
@@ -26,11 +26,8 @@ export default function Navbar() {
 
   const handleScroll = (e: React.MouseEvent<HTMLElement, MouseEvent>, href: string) => {
     e.preventDefault();
-    
-    // 1. Fecha o menu primeiro
     setIsMenuOpen(false); 
     
-    // 2. Pequeno delay para garantir que o menu começou a fechar antes do scroll
     setTimeout(() => {
       if (href === "#inicio" || href === "#") {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -47,11 +44,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled || isMenuOpen ? "bg-black/90 backdrop-blur-md border-b border-white/5 py-4" : "bg-transparent py-8"}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 h-20 flex items-center border-b border-white/5 ${isScrolled || isMenuOpen ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-black/80 backdrop-blur-sm"}`}>
+      
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center w-full">
         
-        {/* LOGO */}
-        <div 
+          <div 
           className="flex items-center gap-3 group cursor-pointer" 
           onClick={(e) => handleScroll(e, "#inicio")}
         >
@@ -59,13 +56,12 @@ export default function Navbar() {
             <Image src="/logo.svg" alt="Logo Fernando" fill className="object-contain" priority />
           </div>
           <div className="flex flex-col justify-center">            
-            <span className="text-[14px] font-medium tracking-[0.3em] text-zinc-500 leading-none mt-1 uppercase">
+            <span className="text-[14px] font-medium tracking-[0.3em] text-zinc-300 leading-none mt-1 uppercase group-hover:text-white transition-colors">
               Fernando Dev
             </span>
           </div>
-        </div>
-
-        {/* MENU DESKTOP */}
+        </div>        
+        
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
@@ -79,14 +75,12 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-
-        {/* BOTÃO MOBILE */}
+        
         <button className="md:hidden text-zinc-400 hover:text-white outline-none" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
-      {/* MENU MOBILE ANIMADO */}
+      
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
@@ -94,7 +88,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden border-b border-white/5 bg-black/95 backdrop-blur-xl"
+            className="absolute top-24 left-0 w-full overflow-hidden border-b border-white/5 bg-black/98 backdrop-blur-xl"
           >
             <div className="flex flex-col items-center gap-8 py-10">
               {navLinks.map((link) => (

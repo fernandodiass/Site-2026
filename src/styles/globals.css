@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* --- Configurações Base --- */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -15,19 +14,16 @@
     overflow-x: hidden;
   }
 
-  /* Ajuste para a Navbar fixa não cobrir o topo das seções no scroll */
   section {
     scroll-margin-top: 80px;
   }
 }
 
-/* --- Animações da Hero Section --- */
 .gradient-text {
   background-image: linear-gradient(45deg, #3b82f6, #60a5fa, #a855f7, #3b82f6);
   background-size: 300% auto;
   background-clip: text;
-  color: transparent;
-  /* Se o linter reclamar das linhas abaixo, você pode ignorar ou usar inline style no componente */
+  color: transparent;  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 4s ease infinite;
@@ -44,7 +40,6 @@
   }
 }
 
-/* Background sutil pulsante na Hero */
 @keyframes gradient-slow-pulse {
   0% {
     opacity: 0.4;
@@ -64,7 +59,6 @@
   animation: gradient-slow-pulse 15s ease-in-out infinite;
 }
 
-/* --- Estilização da Barra de Rolagem (Scrollbar) --- */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -80,10 +74,9 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6; /* A cor muda para o azul da sua marca ao passar o mouse */
+  background: #3b82f6; 
 }
 
-/* --- Utilidades Extras --- */
 .glass-effect {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);

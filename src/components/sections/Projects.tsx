@@ -8,7 +8,7 @@ const projects = [
     category: "Análise de Dados & Finanças",
     description: "Dashboard de gestão financeira de alta performance com processamento de dados em tempo real via integração de API.",
     techs: ["React/Vite", "Tailwind", "Recharts", "Api Json"],
-    icon: <LayoutPanelLeft className="text-blue-500" size={32} />,
+    icon: <LayoutPanelLeft className="text-purple-500" size={32} />,
     image: "/projetos/lumina_dashboard.jpg",
     link: "https://lumina-dash.vercel.app/",
     github: "https://github.com/fernandodiass/Lumina-dashboard" 
@@ -27,8 +27,8 @@ const projects = [
     title: "Aura Chat AI",
     category: "Engenharia de IA e RAG",
     description: "Chatbot com arquitetura RAG (Retrieval-Augmented Generation) e API da Groq para fornecer respostas contextuais de latência ultra-baixa.",
-    techs: ["LangChain", "OpenAI", "Vector DB"],
-    icon: <Terminal className="text-purple-500" size={32} />,
+    techs: ["LangChain", "Groq API", "OpenAI", "RAG"],
+    icon: <Terminal className="text-blue-500 " size={32} />,
     image: "/projetos/aura_chat_ai.jpg",
     link: "https://aura-ai-fernando.vercel.app",
     github: "https://github.com/fernandodiass/AURA-AI" 
@@ -90,17 +90,20 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-[10px] uppercase font-black tracking-widest text-white hover:text-blue-500 transition-colors"
                 >
-                  Ver Case <ExternalLink size={12} />
-                </a>
+                  <button className="p-2.5 bg-blue-600/10 hover:bg-blue-600 text-blue-500 hover:text-white rounded-lg transition-all group" title="Ver Projeto">
+      <ExternalLink size={18} />
+    </button>
+                </a>               
                 
-                {/* ALTERAÇÃO AQUI: Link do GitHub dinâmico */}
                 <a 
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-600 hover:text-white transition-colors ml-auto"
                 >
-                  <Github size={16} />
+                  <button className="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-lg transition-all" title="Ver Código">
+      <Github size={18} />
+    </button>
                 </a>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { ChevronUp, Github, Linkedin, MessageCircle } from "lucide-react";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   
-  const meuNumero = "5562984468562"; // Substitua pelo seu número
+  const meuNumero = "5562984468562"; 
   const mensagem = encodeURIComponent("Olá Fernando! Vi seu portfólio e gostaria de conversar.");
   const whatsappUrl = `https://wa.me/${meuNumero}?text=${mensagem}`;
 
@@ -14,9 +14,8 @@ export default function Footer() {
 
   return (
     <footer id="contato" className="py-16 border-t border-white/5 bg-[#09090b] relative">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">        
         
-        {/* BOTÃO VOLTAR AO TOPO */}
         <div className="flex justify-center mb-12">
           <button 
             onClick={scrollToTop}
@@ -29,9 +28,8 @@ export default function Footer() {
           </button>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10">          
           
-          {/* LADO ESQUERDO: IDENTIDADE */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-2">
                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -41,11 +39,9 @@ export default function Footer() {
               © 2017 - {currentYear} — Todos os direitos reservados.
             </p>
           </div>
-
-          {/* LADO DIREITO: CONTATO DESTAQUE & SOCIAIS */}
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            
-            {/* WHATSAPP EM DESTAQUE */}
+          
+          <div className="flex flex-col md:flex-row items-center gap-8">            
+           
             <a 
               href={whatsappUrl}
               target="_blank"
@@ -55,8 +51,7 @@ export default function Footer() {
               <span className="text-[10px] font-black uppercase tracking-[0.2em]">Chamar no WhatsApp</span>
               <MessageCircle size={18} className="group-hover:scale-110 transition-transform" />
             </a>
-
-            {/* REDES SOCIAIS MAIS DISCRETAS */}
+          
             <div className="flex gap-6 border-l border-white/10 pl-8 ml-2">
               <a href="https://github.com/fernandodiass" target="_blank" className="text-zinc-600 hover:text-white transition-colors">
                 <Github size={18} />
