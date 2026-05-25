@@ -2,9 +2,9 @@
   <img src="img/header.png" alt="Header do Projeto" width="100%">
 </div>
 
-# Portfólio Profissional - FERNANDODIASS
+# OBJETIVO DO MEU SITE
 
-Este é meu portfólio profissional com o objetivo de apresentar meus trabalhos na áreas de Design Gráfico, Web Design e Códgios & Sistemas.
+Este é meu site profissional, no qual, tem como objetivo, apresentar meus trabalhos nas áreas de Design Gráfico, Web Design e Códgios & Sistemas.
 
 ## 🚀 Acesse o projeto
 Clique no link abaixo para visualizar o site:
