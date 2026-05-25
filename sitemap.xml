@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ============================================================
+       PÁGINA PRINCIPAL
+  ============================================================ -->
+  <url>
+    <loc>https://fernandodiass.com.br/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Hreflang para idioma/região -->
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://fernandodiass.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fernandodiass.com.br/"/>
+
+    <!-- Imagens indexáveis pelo Google Images -->
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/og-cover.webp</image:loc>
+      <image:title>Fernando Dias — Design Gráfico, Web Design e Código</image:title>
+      <image:caption>Portfólio completo de Fernando Dias: designer gráfico e desenvolvedor web em Goiás, Brasil.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/avatar.png</image:loc>
+      <image:title>Fernando Dias — Designer Gráfico e Desenvolvedor Web</image:title>
+      <image:caption>Foto de Fernando Dias, designer gráfico e desenvolvedor web baseado em Goiás, Brasil.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/hero-comic.webp</image:loc>
+      <image:title>Hero — Design Gráfico, Web Design e Sistemas com IA</image:title>
+      <image:caption>Ilustração estilo HQ representando as áreas de atuação de Fernando Dias: design, web e código.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/servicos/desing_grafico.webp</image:loc>
+      <image:title>Serviço de Design Gráfico — Fernando Dias</image:title>
+      <image:caption>Assets 3D, identidade visual, packs de arte e branding por Fernando Dias.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/servicos/webdesign.webp</image:loc>
+      <image:title>Serviço de Web Design — Fernando Dias</image:title>
+      <image:caption>Landing pages, portais e UX/UI desenvolvidos por Fernando Dias.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/servicos/codigo-e-sistemas.webp</image:loc>
+      <image:title>Serviço de Código e Sistemas com IA — Fernando Dias</image:title>
+      <image:caption>Automações, engenharia de prompts e sistemas com inteligência artificial por Fernando Dias.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/projetos/brand.png</image:loc>
+      <image:title>Projeto de Identidade Visual — Fernando Dias Design</image:title>
+      <image:caption>Rebranding completo com tipografia ousada e paleta de alto contraste.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/projetos/webdesign.png</image:loc>
+      <image:title>Projeto de Sites e Landing Pages — Fernando Dias</image:title>
+      <image:caption>Portal corporativo responsivo e mobile-first desenvolvido por Fernando Dias.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/projetos/pack.png</image:loc>
+      <image:title>Packs e Assets Digitais — Fernando Dias</image:title>
+      <image:caption>Coleções de assets digitais para designers e criadores de conteúdo.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/projetos/codigo.png</image:loc>
+      <image:title>Dashboards e Componentes Web — Fernando Dias</image:title>
+      <image:caption>Interfaces e componentes de código para sistemas e aplicações web.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/projetos/ia.png</image:loc>
+      <image:title>Engenharia de Prompts e Automação com IA — Fernando Dias</image:title>
+      <image:caption>Sistemas de automação e engenharia de prompts com inteligência artificial.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://fernandodiass.com.br/img/projetos/info.png</image:loc>
+      <image:title>Criação de Infoprodutos — Fernando Dias</image:title>
+      <image:caption>Design e desenvolvimento para e-books, cursos e materiais digitais educacionais.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

@@ -1,0 +1,66 @@
+# ============================================================
+# robots.txt — fernandodias.design
+# Última atualização: 2026-05-25
+# ============================================================
+
+# Regras para todos os crawlers
+User-agent: *
+Allow: /
+
+# Bloqueia arquivos desnecessários para indexação
+Disallow: /css/
+Disallow: /js/
+Disallow: /img/favicon*
+Disallow: /*.json$
+Disallow: /*.map$
+
+# Permite explicitamente imagens (para Google Images)
+Allow: /img/
+
+# ============================================================
+# Regras específicas por bot
+# ============================================================
+
+# Google — acesso total
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+# Google Images — permite todas as imagens
+User-agent: Googlebot-Image
+Allow: /img/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+Crawl-delay: 5
+
+# Bloqueia scrapers e bots de spam conhecidos
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# ============================================================
+# Sitemap — aponta para o arquivo XML
+# ============================================================
+Sitemap: https://fernandodiass.com.br/sitemap.xml
