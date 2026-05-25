@@ -2,8 +2,6 @@
   <img src="img/header.png" alt="Header do Projeto" width="100%">
 </div>
 
-# OBJETIVO DO MEU SITE
-
 Este é meu site profissional, no qual, tem como objetivo, apresentar meus trabalhos nas áreas de Design Gráfico, Web Design e Códgios & Sistemas.
 
 ## 🚀 Acesse o projeto
@@ -18,10 +16,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - **JavaScript** - Interatividade
 
 ## 📸 Demonstração
-*(Você pode adicionar um print da tela do site abaixo)*
-![Preview do Site](img/preview.png)
 
----
+![Preview do Site](img/preview.png)
 
 ## 👤 Autor
 
