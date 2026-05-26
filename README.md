@@ -2,7 +2,8 @@
   <img src="img/header.png" alt="Header do Projeto" width="100%">
 </div>
 
-Este é meu site profissional, no qual, tem como objetivo, apresentar meus trabalhos nas áreas de Design Gráfico, Web Design e Códgios & Sistemas.
+Meu site profissional foi criado para apresentar meus projetos e soluções criativas nas áreas de Design Gráfico, Web Design e Desenvolvimento de Códigos & Sistemas, unindo estética, tecnologia e inovação para transformar ideias em experiências digitais impactantes.
+Bem-vindo ao meu universo criativo. Este site reúne meus principais projetos em Design Gráfico, Web Design e Desenvolvimento de Sistemas, explorando a conexão entre arte, identidade visual e tecnologia para construir experiências únicas e inovadoras.
 
 ## 🚀 Acesse o projeto
 Clique no link abaixo para visualizar o site:
