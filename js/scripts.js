@@ -1,6 +1,5 @@
 /* ================================================================
-   scripts.js — fernandodiass.com.br
-   Última atualização: 2026-05-25
+   scripts.js — fernandodiass.com.br   
 ================================================================ */
 
 /* ---- HAMBURGER ---- */
@@ -136,87 +135,184 @@ projReset();
 /* ---- PROJECT DATA ---- */
 const projectData = [
   {
-    title: 'Identidade Visual',
-    cat:   'Design Gráfico · 2024',
-    emoji: '🔥',
-    desc:  'Rebranding completo para startup de tecnologia. Tipografia ousada, paleta de alto contraste, manual de marca e adaptações para mídias digitais e offline.',
-    link1: '#',
-    link2: 'https://www.behance.net/fernando-dias'
+    title: 'Identidade Estratégica',
+    cat:   'Identidade Visual e Papelaria',
+    img:   'img/projetos/mockups/identidade_visual_1.webp', 
+    img2:  'img/projetos/mockups/identidade_visual_2.webp',       
+    imgAlt:'Projeto de Identidade Estratégica — identidade visual e papelaria, Fernando Dias Design',
+    desc:  'Criação de logotipos e padronização visual corporativa. Projetos desenvolvidos sob medida, incluindo a escolha de cores, fontes e o design de materiais institucionais como cartões de visita, timbrados e envelopes, garantindo consistência na apresentação da marca.',
+    buttons: [
+      { text: 'Ver Behance', link: 'https://www.behance.net/fernando-dias', className: 'btn-navy' },
+      { text: 'Vamos Conversar?', link: 'https://wa.me/556284468562', className: 'btn-wpp' }      
+    ]
   },
   {
-    title: 'Sites e Landing Pages',
-    cat:   'Web Design · 2024',
-    emoji: '🌐',
-    desc:  'Portal corporativo com sistema de conteúdo dinâmico e design responsivo mobile-first. Core Web Vitals 98/100.',
-    link1: '#',
-    link2: 'https://www.behance.net/fernando-dias'
+    title: 'Landing Page de Alta Conversão',
+    cat:   'Sites e Landing Pages',
+    img:   'img/projetos/mockups/webdesign.webp',    
+    imgAlt:'Landing Page de Alta Conversão — site responsivo mobile-first, Fernando Dias, sites, webdesign, UI/UX',
+    desc:  'A NexusLP é uma Landing Page de última geração desenvolvida para infraestruturas de dados e dashboards de alta performance. O foco do projeto é proporcionar uma experiência visual imersiva, utilizando efeitos de vidro (glassmorphism), animações fluidas e uma estética "Dark Tech".',
+    buttons: [   
+      { text: 'Ver ao Vivo', link: 'https://nexuslp.vercel.app', className: 'btn-red' },   
+      { text: 'Ver Código', link: 'https://github.com/fernandodiass/nexus-lp', className: 'btn-yellow' },
+      { text: 'Vamos Conversar?', link: 'https://wa.me/556284468562', className: 'btn-wpp' }
+    ]
   },
   {
-    title: 'Packs & Assets',
-    cat:   'Design Gráfico · 2024',
-    emoji: '🎭',
-    desc:  'Coleções de assets digitais para designers e criadores de conteúdo. Formatos PNG 4K + arquivos editáveis com licença comercial.',
-    link1: '#',
-    link2: 'https://www.behance.net/fernando-dias'
+    title: 'Assets de Performance',
+    cat:   'Pack Arts Comic: Estilo Retrô e HQ',
+    img:   'img/projetos/mockups/pack.webp',    
+    imgAlt:'Capa do Pack Arts Comic mostrando elementos gráficos e artes vetoriais editáveis no estilo retrô de histórias em quadrinhos e pop art.',
+    desc:  'Eleve o nível do seu design com um pacote exclusivo de artes e elementos gráficos inspirados no universo dos quadrinhos e da pop art. Desenvolvido estrategicamente para acelerar seu fluxo de trabalho criativo, este pack é extremamente versátil e perfeito para a personalização de canecas, pôsteres, quadros, cartões e muito mais.',
+    buttons: [
+      { text: 'Ver Mais', link: 'https://fernandodiass.com.br/pack-arts-comic/', className: 'btn-red' },
+      { text: 'Vamos Conversar?', link: 'https://wa.me/556284468562', className: 'btn-wpp' }
+    ]
   },
   {
-    title: 'Dashboards & Components',
-    cat:   'Código & Sistemas · 2025',
-    emoji: '⚙️',
-    desc:  'Interfaces e componentes de código para sistemas e aplicações web. Design system completo com tokens e estados.',
-    link1: '#',
-    link2: 'https://github.com/fernandodiass'
+    title: 'Dashboards Inteligentes',
+    cat:   'Códigos & Sistemas',
+    img:   'img/projetos/mockups/dashboard.webp', 
+    imgAlt:'Dashboards Inteligentes — interface para gestão de dados operacionais com código',
+    desc:  'Lumina Dashboard é uma solução moderna de Business Intelligence para finanças pessoais ou empresariais. Esta aplicação transforma dados brutos em insights visuais através de gráficos interativos e uma interface limpa, focada em performance e usabilidade.',
+    buttons: [
+      { text: 'Ver ao Vivo', link: 'https://lumina-dash.vercel.app', className: 'btn-red' },   
+      { text: 'Ver Código', link: 'https://github.com/fernandodiass/Lumina-dashboard', className: 'btn-yellow' },
+      { text: 'Vamos Conversar?', link: 'https://wa.me/556284468562', className: 'btn-wpp' }
+    ]    
   },
   {
-    title: 'Prompts & Automação c/ IA',
-    cat:   'Código & Sistemas · 2025',
-    emoji: '🤖',
-    desc:  'Sistemas de engenharia de prompts e automação para equipes de marketing e negócios digitais. Redução de até 60% no tempo de produção de conteúdo.',
-    link1: '#',
-    link2: 'https://github.com/fernandodiass'
+    title: 'Automação de Fluxo com IA',
+    cat:   'Prompts & IA',
+    img:   'img/projetos/mockups/ia.webp',    
+    imgAlt:'Automação de Fluxo com Inteligência Artificial — engenharia de prompts e processos',
+    desc:  'Aura AI é um chatbot com arquitetura RAG (Retrieval-Augmented Generation) e API da Groq para fornecer respostas contextuais de latência ultra-baixa. Esta ferramenta ajuda na automação de fluxo de processos',
+    buttons: [
+      { text: 'Ver ao Vivo', link: 'https://aura-ai-fernando.vercel.app', className: 'btn-red' },
+      { text: 'Ver Código', link: 'https://github.com/fernandodiass/AURA-AI', className: 'btn-yellow' },
+      { text: 'Vamos Conversar?', link: 'https://wa.me/556284468562', className: 'btn-wpp' }
+    ]
   },
   {
-    title: 'Criação de Infoprodutos',
-    cat:   'Design Gráfico / Web Design · 2025',
-    emoji: '📚',
-    desc:  'Design e desenvolvimento completo para e-books, cursos online e materiais educacionais digitais.',
-    link1: '#',
-    link2: 'https://www.behance.net/fernando-dias'
+    title: 'Ecossistemas para Infoprodutos',
+    cat:   'Criação de Produtos Digitais',
+    img:   'img/projetos/mockups/info.webp',    
+    imgAlt:'Ecossistemas para Infoprodutos — design e web para e-books, cursos e produtos digitais',
+    desc:  'Estrutura completa de design e web para produtos digitais: e-books, cursos online e mentorias. Foco em autoridade, experiência de consumo premium e funil de vendas integrado.',
+    buttons: [
+      { text: 'Ver Mais', link: 'https://50-prompts-elite-para-whatsapp.vercel.app', className: 'btn-red' },
+      { text: 'Vamos Conversar?', link: 'https://wa.me/556284468562', className: 'btn-wpp' }
+    ]
   }
 ];
 
-/* ---- MODAL ---- */
+/* ---- MODAL CONTROLS ---- */
 const modalOverlay = document.getElementById('modalOverlay');
 const modalClose   = document.getElementById('modalClose');
+let lastActiveElement = null;
 
+// Escuta o container de track de projetos do seu HTML
+const projectsContainer = document.getElementById('projectsTrack') || document.querySelector('.projects-track');
+
+if (projectsContainer) {
+  // Captura o clique nos cards de projetos
+  projectsContainer.addEventListener('click', e => {
+    const card = e.target.closest('.project-card');
+    if (!card) return;
+    
+    // Pega o índice correto através do atributo data-project do seu HTML
+    const idx = parseInt(card.getAttribute('data-project'), 10);
+    if (!isNaN(idx)) {
+      lastActiveElement = document.activeElement;
+      openModal(idx);
+    }
+  });
+
+  // Abre a modal também via teclado (Acessibilidade)
+  projectsContainer.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const card = e.target.closest('.project-card');
+      if (!card) return;
+      const idx = parseInt(card.getAttribute('data-project'), 10);
+      if (!isNaN(idx)) {
+        e.preventDefault();
+        lastActiveElement = document.activeElement;
+        openModal(idx);
+      }
+    }
+  });
+}
+
+// Função responsável por preencher os dados e abrir a modal
 function openModal(idx) {
   const p = projectData[idx];
   if (!p) return;
+
+  // Injeta os textos principais
   document.getElementById('modalTitle').textContent = p.title;
   document.getElementById('modalCat').textContent   = p.cat;
   document.getElementById('modalDesc').textContent  = p.desc;
-  document.getElementById('modalEmoji').textContent = p.emoji;
-  document.getElementById('modalLink1').href        = p.link1;
-  document.getElementById('modalLink2').href        = p.link2;
+
+  // Gerencia o container de imagens
+  const imgBox = document.getElementById('modalImgBox');
+  imgBox.innerHTML = '';
+
+  // Processa e empilha as 3 imagens sequencialmente na vertical
+  const images = [p.img, p.img2, p.img3];
+  images.forEach(src => {
+    if (src && src.trim() !== '') {
+      const im = document.createElement('img');
+      im.src = src;
+      im.alt = p.imgAlt || p.title;
+      imgBox.appendChild(im);
+    }
+  });
+
+  // Renderização Dinâmica e Inteligente de até 3 Botões por Modal
+  const actionsContainer = document.querySelector('.modal-actions');
+  actionsContainer.innerHTML = ''; // Limpa botões antigos/estáticos
+
+  if (p.buttons && Array.isArray(p.buttons)) {
+    // Limita a exibição às 3 primeiras opções configuradas no objeto
+    p.buttons.slice(0, 3).forEach(btn => {
+      if (btn.link && btn.link !== '#') {
+        const a = document.createElement('a');
+        a.href = btn.link;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = btn.text;
+        
+        // Aplica a classe geral 'btn' e concatena a classe customizada de estilo
+        a.className = `btn ${btn.className || 'btn-primary'}`;
+        
+        actionsContainer.appendChild(a);
+      }
+    });
+  }
+
+  // Ativa a exibição da modal na tela
   modalOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
   modalClose.focus();
 }
 
+// Função para fechar a modal
 function closeModal() {
   modalOverlay.classList.remove('open');
   document.body.style.overflow = '';
+  if (lastActiveElement) lastActiveElement.focus();
 }
 
-document.querySelectorAll('.project-card').forEach(card => {
-  card.addEventListener('click',   () => openModal(+card.dataset.project));
-  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(+card.dataset.project); });
+// Eventos para acionar o fechamento da modal
+modalClose.addEventListener('click', closeModal);
+
+modalOverlay.addEventListener('click', e => { 
+  if (e.target === modalOverlay) closeModal(); 
 });
 
-modalClose.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
+window.addEventListener('keydown', e => { 
+  if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal(); 
+});
 /* ---- NAV HIGHLIGHT via IntersectionObserver ---- */
 const navAs = document.querySelectorAll('.nav-links a');
 
