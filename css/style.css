@@ -44,7 +44,7 @@ a   { text-decoration: none; color: inherit; }
 /* ============================================================
    UTILIDADES
 ============================================================ */
-.section { padding: 72px 24px; max-width: 1200px; margin: 0 auto; }
+.section { padding: 40px 24px; max-width: 1200px; margin: 0 auto; }
 .section-title {
   font-family: var(--ff-title);
   font-size: clamp(2.4rem, 5vw, 4rem);
@@ -343,7 +343,7 @@ a   { text-decoration: none; color: inherit; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
-  padding: 40px 20px; /* Adicionei padding para a grade não encostar nas bordas */
+  padding: 20px 20px; /* Adicionei padding para a grade não encostar nas bordas */
 }
 
 .service-card {
@@ -370,7 +370,7 @@ a   { text-decoration: none; color: inherit; }
    PROJECTS — carrossel automático e totalmente responsivo
 ============================================================ */
 #projetos { background: var(--navy); border-bottom: var(--border); overflow: hidden; }
-#projetos .section-title { color: var(--yellow); text-shadow: 3px 3px 0 var(--black); }
+#projetos .section-title { color: var(--yellow); text-shadow: 3px 3px 0 var(--black); margin-bottom: 28px; }
 #projetos .section-sub  { color: var(--beige); }
 
 /* Viewport que mascara overflow */
@@ -425,6 +425,7 @@ a   { text-decoration: none; color: inherit; }
 .proj-dots {
   display: flex; justify-content: center; gap: 8px;
   margin-top: 24px;
+  
 }
 .proj-dot {
   width: 10px; height: 10px;
@@ -720,3 +721,20 @@ text-align: center;    /* Centraliza o texto */
 .project-card:hover .project-thumb img {
   transform: scale(1.04);
 }
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 8px;
+    background: #E8A820;
+    color: #0D1218;
+    padding: 8px 16px;
+    font-family: monospace;
+    font-size: .85rem;
+    font-weight: 700;
+    border: 3px solid #0D1218;
+    border-radius: 4px;
+    z-index: 9999;
+    transition: top .2s;
+  }
+  .skip-link:focus { top: 8px; }

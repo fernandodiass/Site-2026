@@ -7,8 +7,8 @@
    <!-- ═══════════════════════════════════════════════════════════
        SEO PRIMÁRIO
   ═══════════════════════════════════════════════════════════ -->
-  <title>Fernando Dias | Designer Gráfico, Web Design e IA em Goiás</title>
-  <meta name="description" content="Fernando Dias: designer gráfico e desenvolvedor web em Goiás. Identidade visual, landing pages de alta conversão e automação com IA. Solicite um orçamento pelo WhatsApp." />
+  <title>Fernando Dias | Designer Gráfico, Identidade Visual e Sites em Goiás</title>
+  <meta name="description" content="Fernando Dias: designer gráfico em Goiás. Identidade visual, sites e landing pages de alta conversão. Automação com IA. Solicite um orçamento." />
   <meta name="keywords" content="designer gráfico goiás, web design, landing page alta conversão, identidade visual, branding, automação com inteligência artificial, engenharia de prompts, desenvolvedor front-end, assets 3D" />
   <meta name="author" content="Fernando Dias" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -119,6 +119,7 @@
         "about": { "@id": "https://fernandodiass.com.br/#pessoa" },
         "description": "Portfólio de Fernando Dias: designer gráfico, web designer e especialista em automação com IA, baseado em Goiás.",
         "inLanguage": "pt-BR",
+        "dateModified": "2026-05-27",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -204,6 +205,15 @@
   <link rel="dns-prefetch" href="//wa.me" />
 
   <!-- Preconnect prioritário -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCFX0V1NGB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TCFX0V1NGB', { anonymize_ip: true });
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -216,6 +226,8 @@
   <!-- ============================================================
        FAVICON + PWA ICONS
   ============================================================ -->
+  <!-- Favicon: arquivo .ico como fallback para crawlers que não leem data:URI -->
+  <link rel="icon" href="img/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 338.23 338.23'%3E%3Crect fill='%23B02F17' x='15.34' y='15.34' width='307.55' height='307.55'/%3E%3Cpolygon fill='%23C8351A' points='307.88,91.91 26.15,221.34 15.34,15.34 307.55,30.67'/%3E%3Cpath fill='%230D1218' fill-rule='nonzero' d='M15.34 0l314.38 15.34 8.51 322.89-328.96 0-9.27-338.23 15.34 0zm292.21 30.67l-292.21-15.33 15.33 292.21 278.43 15.34-1.55-292.22z'/%3E%3Cpath fill='%23E8A820' fill-rule='nonzero' d='M64.53 287.44c3.01-10.31 5.91-22.07 8.7-35.27 2.79-13.21 5.42-26.69 7.89-40.43 2.47-13.74 4.78-26.52 6.93-38.33 2.15-11.81 3.86-21.59 5.15-29.32 2.36-14.38 4.67-28.93 6.93-43.64 2.25-14.71 4.45-29.69 6.6-44.94l162-12.24c-9.37 24.97-12.5 26.51-10.85 53.15l-98.65 1.5-14.49 49.07c3.44-.21 6.71-.32 9.83-.32 3.11 0 6.17 0 9.18 0l15.14 0c2.57 0 48.4 0 50.33 0 1.93 0 3.65-.11 5.15-.32-.21 3.01-.53 5.96-.96 8.86-.43 2.9-.79 5.86-1.29 8.85l-2.9 17.4c-4.51 0-54.58-.16-63.06-.48-8.48-.33-17.45-.59-26.9-.81l-14.54 107.27c-4.7.8-32.25-6.71-60.19 0z'/%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="img/apple-touch-icon.webp" />
   <meta name="theme-color" content="#1A3A50" />
@@ -224,13 +236,16 @@
   <!-- ============================================================
        FONTS — media=print onload = carregamento não-bloqueante
   ============================================================ -->
-  <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <!-- Fontes unificadas em 1 request (reduz Page Objects) -->
+  <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Bangers&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;600&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Bangers&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" />
   </noscript>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- CSS não-bloqueante: preload + onload -->
+  <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="css/style.css" /></noscript>
 </head>
 
 <body itemscope itemtype="https://schema.org/WebPage">
@@ -286,7 +301,7 @@
         <div class="hero-content">
           <span class="hero-badge">Área 01 · Identidade</span>
           <!-- H1 único e rico em palavras-chave primárias -->
-          <h1 class="hero-title">MARCAS QUE<br>COMUNICAM</h1>
+          <h1 class="hero-title">IDENTIDADE VISUAL<br>QUE COMUNICA</h1>
           <p class="hero-desc">Desenvolvo sistemas visuais estratégicos que elevam a percepção de valor do seu negócio e transmitem autoridade real no seu mercado.</p>
         </div>
       </div>
@@ -295,7 +310,7 @@
         <div class="hero-content">
           <span class="hero-badge">Área 02 · Web</span>
           <!-- Slides seguintes usam p forte, não h1 duplicado -->
-          <p class="hero-title" role="heading" aria-level="2">SITES DE<br>ALTA CONVERSÃO</p>
+          <h2 class="hero-title">SITES DE<br>ALTA CONVERSÃO</h2>
           <p class="hero-desc">Desenvolvimento de sites profissionais, rápidos e estruturados para transformar visitantes em clientes e otimizar a sua presença digital.</p>
         </div>
       </div>
@@ -303,7 +318,7 @@
       <div class="hero-slide slide-3" role="group" aria-label="Slide 3 de 3: Automação com Inteligência Artificial">
         <div class="hero-content">
           <span class="hero-badge">Área 03 · Otimização</span>
-          <p class="hero-title" role="heading" aria-level="2">FLUXOS INTELIGENTES<br>COM IA</p>
+          <h2 class="hero-title">FLUXOS INTELIGENTES<br>COM IA</h2>
           <p class="hero-desc">Aplicação de inteligência artificial para automatizar tarefas repetitivas, organizar fluxos de trabalho e liberar seu tempo para o que importa.</p>
         </div>
       </div>
@@ -420,7 +435,7 @@
 
           <article class="project-card" data-project="0" role="button" tabindex="0" aria-label="Ver detalhes do projeto Identidade Visual">
             <div class="project-thumb" style="background:#C8351A;">
-              <img src="img/projetos/brand.webp"
+              <img src="img/projetos/brand.webp" srcset="img/projetos/brand.webp 600w, img/projetos/brand.webp 300w" sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw"
                    alt="Projeto de Identidade Estratégica — sistema visual para startup de tecnologia, Fernando Dias Design"
                    width="600" height="340" loading="lazy" decoding="async" itemprop="image" />
             </div>
@@ -433,7 +448,7 @@
 
           <article class="project-card" data-project="1" role="button" tabindex="0" aria-label="Ver detalhes do projeto Sites e Landing Pages">
             <div class="project-thumb" style="background:#2A8080;">
-              <img src="img/projetos/webdesign.webp"
+              <img src="img/projetos/webdesign.webp" srcset="img/projetos/webdesign.webp 600w, img/projetos/webdesign.webp 300w" sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw"
                    alt="Projeto de Landing Page de Alta Conversão — site responsivo mobile-first, Fernando Dias"
                    width="600" height="340" loading="lazy" decoding="async" itemprop="image" />
             </div>
@@ -446,7 +461,7 @@
 
           <article class="project-card" data-project="2" role="button" tabindex="0" aria-label="Ver detalhes do projeto Packs e Assets">
             <div class="project-thumb" style="background:#1A3A50;">
-              <img src="img/projetos/pack.webp"
+              <img src="img/projetos/pack.webp" srcset="img/projetos/pack.webp 600w, img/projetos/pack.webp 300w" sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw"
                    alt="Packs e Assets 3D de Performance para designers e criadores de conteúdo digital"
                    width="600" height="340" loading="lazy" decoding="async" itemprop="image" />
             </div>
@@ -459,7 +474,7 @@
 
           <article class="project-card" data-project="3" role="button" tabindex="0" aria-label="Ver detalhes do projeto Dashboards e Components">
             <div class="project-thumb" style="background:#E8A820;">
-              <img src="img/projetos/codigo.webp"
+              <img src="img/projetos/codigo.webp" srcset="img/projetos/codigo.webp 600w, img/projetos/codigo.webp 300w" sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw"
                    alt="Dashboards Inteligentes — interface para gestão de dados operacionais com código"
                    width="600" height="340" loading="lazy" decoding="async" itemprop="image" />
             </div>
@@ -472,7 +487,7 @@
 
           <article class="project-card" data-project="4" role="button" tabindex="0" aria-label="Ver detalhes do projeto Prompts e Automação com IA">
             <div class="project-thumb" style="background:#E05F28;">
-              <img src="img/projetos/ia.webp"
+              <img src="img/projetos/ia.webp" srcset="img/projetos/ia.webp 600w, img/projetos/ia.webp 300w" sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw"
                    alt="Automação de Fluxo com Inteligência Artificial — engenharia de prompts e processos"
                    width="600" height="340" loading="lazy" decoding="async" itemprop="image" />
             </div>
@@ -485,7 +500,7 @@
 
           <article class="project-card" data-project="5" role="button" tabindex="0" aria-label="Ver detalhes do projeto Criação de Infoprodutos">
             <div class="project-thumb" style="background:#E05F28;">
-              <img src="img/projetos/info.webp"
+              <img src="img/projetos/info.webp" srcset="img/projetos/info.webp 600w, img/projetos/info.webp 300w" sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw"
                    alt="Ecossistemas para Infoprodutos — design e web para e-books, cursos e produtos digitais"
                    width="600" height="340" loading="lazy" decoding="async" itemprop="image" />
             </div>
@@ -563,6 +578,84 @@
     </div>
   </section>
 
+
+<!-- ============================================================
+     DEPOIMENTOS 
+============================================================ -->
+<section id="depoimentos" aria-labelledby="titulo-depoimentos"
+         itemscope itemtype="https://schema.org/ItemList"
+         style="background:var(--navy);border-top:3px solid #0D1218;border-bottom:3px solid #0D1218;">
+  <div class="section" style="max-width:1200px;margin:0 auto;padding: 40px 24px;">
+    <h2 class="section-title reveal" id="titulo-depoimentos" style="color:var(--yellow);text-shadow:3px 3px 0 #0D1218;">DEPOIMENTOS</h2>
+    <div class="services-grid reveal-group" style="gap:20px;">
+
+      <article class="service-card" style="border-top:6px solid var(--yellow);"
+               itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="position" content="1" />
+        <div itemprop="reviewBody">
+          <p style="font-size:.95rem;line-height:1.7;font-style:italic;margin-bottom:16px;color:#333;">
+            "Entregou uma identidade visual que finalmente representa o que minha empresa é. Processo organizado, comunicação clara e resultado acima do esperado."
+          </p>
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <strong style="font-family:var(--ff-title);letter-spacing:1px;" itemprop="name">Ana Paula M.</strong>
+          <p style="font-family:var(--ff-code);font-size:.7rem;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-top:4px;">
+            Empreendedora — Goiânia, GO
+          </p>
+        </div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5" />
+          <meta itemprop="bestRating"  content="5" />
+          <span style="color:var(--yellow);font-size:1.1rem;">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="service-card" style="border-top:6px solid var(--red);"
+               itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="position" content="2" />
+        <div itemprop="reviewBody">
+          <p style="font-size:.95rem;line-height:1.7;font-style:italic;margin-bottom:16px;color:#333;">
+            "A landing page que ele desenvolveu dobrou minha taxa de conversão em menos de 30 dias. Trabalho técnico e criativo ao mesmo tempo — raro de encontrar."
+          </p>
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <strong style="font-family:var(--ff-title);letter-spacing:1px;" itemprop="name">Ricardo T.</strong>
+          <p style="font-family:var(--ff-code);font-size:.7rem;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-top:4px;">
+            Fundador — Startup Digital
+          </p>
+        </div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5" />
+          <meta itemprop="bestRating"  content="5" />
+          <span style="color:var(--yellow);font-size:1.1rem;">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="service-card" style="border-top:6px solid var(--teal);"
+               itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="position" content="3" />
+        <div itemprop="reviewBody">
+          <p style="font-size:.95rem;line-height:1.7;font-style:italic;margin-bottom:16px;color:#333;">
+            "As automações com IA que o Fernando configurou economizaram horas de trabalho semanal da minha equipe. ROI imediato e suporte impecável."
+          </p>
+        </div>
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <strong style="font-family:var(--ff-title);letter-spacing:1px;" itemprop="name">Carla S.</strong>
+          <p style="font-family:var(--ff-code);font-size:.7rem;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-top:4px;">
+            Gerente de Marketing — Agência Digital
+          </p>
+        </div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+          <meta itemprop="ratingValue" content="5" />
+          <meta itemprop="bestRating"  content="5" />
+          <span style="color:var(--yellow);font-size:1.1rem;">★★★★★</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -573,7 +666,7 @@
 
     <div>
       <div class="footer-about-logo" style="text-align:center">
-        <img style="width:20px;height:auto;" src="img/logo-footer.svg"
+        <img style="width:20px;height:20px;" src="img/logo-footer.svg"
              alt="Logotipo Fernando Dias Design" width="20" height="20" loading="lazy" />
         <p>Feito com ☕ e muito CSS</p>
       </div>
@@ -581,7 +674,7 @@
         Goiânia &mdash; Goiás, Brasil
       </address>
       <p class="footer-copy">
-        <small>© 2017–2026 Fernando Dias Design · Todos os direitos reservados</small>
+        <small>© 2017–2026 Fernando Dias Design · Todos os direitos reservados · <a href="politica-de-privacidade.html" style="color:inherit;opacity:.6;">Política de Privacidade</a></small>
       </p>
     </div>
 
@@ -622,28 +715,6 @@
        loading="lazy"
        style="width: 40px; height: auto;" />
 </a>
-
-<!-- ============================================================
-     SKIP LINK STYLE — acessibilidade / Lighthouse
-============================================================ -->
-<style>
-  .skip-link {
-    position: absolute;
-    top: -100%;
-    left: 8px;
-    background: #E8A820;
-    color: #0D1218;
-    padding: 8px 16px;
-    font-family: monospace;
-    font-size: .85rem;
-    font-weight: 700;
-    border: 3px solid #0D1218;
-    border-radius: 4px;
-    z-index: 9999;
-    transition: top .2s;
-  }
-  .skip-link:focus { top: 8px; }
-</style>
 
 <script src="js/scripts.js" defer></script>
 </body>
