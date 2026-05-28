@@ -1,18 +1,443 @@
-const hamburgerBtn=document.getElementById('hamburgerBtn');const navLinksEl=document.getElementById('navLinks');hamburgerBtn.addEventListener('click',()=>{const isOpen=navLinksEl.classList.toggle('open');hamburgerBtn.setAttribute('aria-expanded',isOpen)});document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>{navLinksEl.classList.remove('open');hamburgerBtn.setAttribute('aria-expanded','false')}));const heroSlides=document.getElementById('heroSlides');const heroDots=document.querySelectorAll('.hero-dot');let heroIdx=0;const heroTotal=3;let heroTimer;function heroGo(idx){heroIdx=(idx+heroTotal)%heroTotal;heroSlides.style.transform=`translateX(-${heroIdx * 100}%)`;heroDots.forEach((d,i)=>{d.classList.toggle('active',i===heroIdx);d.setAttribute('aria-selected',i===heroIdx)})}
-function heroReset(){clearInterval(heroTimer);heroTimer=setInterval(()=>heroGo(heroIdx+1),4500)}
-document.getElementById('heroPrev').addEventListener('click',()=>{heroGo(heroIdx-1);heroReset()});document.getElementById('heroNext').addEventListener('click',()=>{heroGo(heroIdx+1);heroReset()});heroDots.forEach(d=>d.addEventListener('click',()=>{heroGo(+d.dataset.idx);heroReset()}));heroReset();const viewport=document.getElementById('projViewport');const track=document.getElementById('projectsTrack');const cards=Array.from(track.querySelectorAll('.project-card'));const dotsWrap=document.getElementById('projDots');const GAP=20;let projIdx=0;let projVisible=1;let projTimer;let projDots=[];function calcVisible(){const vw=viewport.clientWidth;if(vw>=900)return 3;if(vw>=600)return 2;return 1}
-function buildDots(){dotsWrap.innerHTML='';projDots=[];const pages=Math.ceil(cards.length/projVisible);for(let i=0;i<pages;i++){const d=document.createElement('div');d.className='proj-dot'+(i===0?' active':'');d.setAttribute('role','tab');d.setAttribute('aria-label',`Página ${i + 1} de projetos`);d.addEventListener('click',()=>{projGo(i);projReset()});dotsWrap.appendChild(d);projDots.push(d)}}
-function setCardWidth(){projVisible=calcVisible();const cw=Math.floor((viewport.clientWidth-GAP*(projVisible-1))/projVisible);cards.forEach(c=>{c.style.setProperty('--card-w',cw+'px');c.style.width=cw+'px';c.style.minWidth=cw+'px';c.style.marginRight=GAP+'px'});buildDots();projGo(0)}
-function projGo(idx){const pages=Math.ceil(cards.length/projVisible);projIdx=Math.max(0,Math.min(idx,pages-1));const cardW=cards[0].offsetWidth+GAP;const offset=projIdx*projVisible*cardW;track.style.transform=`translateX(-${offset}px)`;projDots.forEach((d,i)=>d.classList.toggle('active',i===projIdx))}
-function projReset(){clearInterval(projTimer);projTimer=setInterval(()=>{const pages=Math.ceil(cards.length/projVisible);projGo((projIdx+1)%pages)},3500)}
-let isDrag=!1,dragStartX=0,dragDeltaX=0;track.addEventListener('mousedown',e=>{isDrag=!0;dragStartX=e.clientX;track.classList.add('dragging')});track.addEventListener('mouseleave',()=>{if(isDrag)finishDrag();});track.addEventListener('mouseup',e=>{if(isDrag){dragDeltaX=e.clientX-dragStartX;finishDrag()}});track.addEventListener('touchstart',e=>{isDrag=!0;dragStartX=e.touches[0].clientX},{passive:!0});track.addEventListener('touchend',e=>{if(isDrag){dragDeltaX=e.changedTouches[0].clientX-dragStartX;finishDrag()}});function finishDrag(){isDrag=!1;track.classList.remove('dragging');const pages=Math.ceil(cards.length/projVisible);if(dragDeltaX<-50)projGo(Math.min(projIdx+1,pages-1));else if(dragDeltaX>50)projGo(Math.max(projIdx-1,0));dragDeltaX=0;projReset()}
-window.addEventListener('resize',()=>{setCardWidth();projReset()});setCardWidth();projReset();const projectData=[{title:'Identidade Estratégica',cat:'Identidade Visual e Papelaria',img:'img/projetos/mockups/identidade_visual_1.webp',img2:'img/projetos/mockups/identidade_visual_2.webp',imgAlt:'Projeto de Identidade Estratégica — identidade visual e papelaria, Fernando Dias Design',desc:'Criação de logotipos e padronização visual corporativa. Projetos desenvolvidos sob medida, incluindo a escolha de cores, fontes e o design de materiais institucionais como cartões de visita, timbrados e envelopes, garantindo consistência na apresentação da marca.',buttons:[{text:'Ver Behance',link:'https://www.behance.net/fernando-dias',className:'btn-navy'},{text:'Vamos Conversar?',link:'https://wa.me/556284468562',className:'btn-wpp'}]},{title:'Landing Page de Alta Conversão',cat:'Sites e Landing Pages',img:'img/projetos/mockups/webdesign.webp',imgAlt:'Landing Page de Alta Conversão — site responsivo mobile-first, Fernando Dias, sites, webdesign, UI/UX',desc:'A NexusLP é uma Landing Page de última geração desenvolvida para infraestruturas de dados e dashboards de alta performance. O foco do projeto é proporcionar uma experiência visual imersiva, utilizando efeitos de vidro (glassmorphism), animações fluidas e uma estética "Dark Tech".',buttons:[{text:'Ver ao Vivo',link:'https://nexuslp.vercel.app',className:'btn-red'},{text:'Ver Código',link:'https://github.com/fernandodiass/nexus-lp',className:'btn-yellow'},{text:'Vamos Conversar?',link:'https://wa.me/556284468562',className:'btn-wpp'}]},{title:'Assets de Performance',cat:'Pack Arts Comic: Estilo Retrô e HQ',img:'img/projetos/mockups/pack.webp',imgAlt:'Capa do Pack Arts Comic mostrando elementos gráficos e artes vetoriais editáveis no estilo retrô de histórias em quadrinhos e pop art.',desc:'Eleve o nível do seu design com um pacote exclusivo de artes e elementos gráficos inspirados no universo dos quadrinhos e da pop art. Desenvolvido estrategicamente para acelerar seu fluxo de trabalho criativo, este pack é extremamente versátil e perfeito para a personalização de canecas, pôsteres, quadros, cartões e muito mais.',buttons:[{text:'Ver Mais',link:'https://fernandodiass.com.br/pack-arts-comic/',className:'btn-red'},{text:'Vamos Conversar?',link:'https://wa.me/556284468562',className:'btn-wpp'}]},{title:'Dashboards Inteligentes',cat:'Códigos & Sistemas',img:'img/projetos/mockups/dashboard.webp',imgAlt:'Dashboards Inteligentes — interface para gestão de dados operacionais com código',desc:'Lumina Dashboard é uma solução moderna de Business Intelligence para finanças pessoais ou empresariais. Esta aplicação transforma dados brutos em insights visuais através de gráficos interativos e uma interface limpa, focada em performance e usabilidade.',buttons:[{text:'Ver ao Vivo',link:'https://lumina-dash.vercel.app',className:'btn-red'},{text:'Ver Código',link:'https://github.com/fernandodiass/Lumina-dashboard',className:'btn-yellow'},{text:'Vamos Conversar?',link:'https://wa.me/556284468562',className:'btn-wpp'}]},{title:'Automação de Fluxo com IA',cat:'Prompts & IA',img:'img/projetos/mockups/ia.webp',imgAlt:'Automação de Fluxo com Inteligência Artificial — engenharia de prompts e processos',desc:'Aura AI é um chatbot com arquitetura RAG (Retrieval-Augmented Generation) e API da Groq para fornecer respostas contextuais de latência ultra-baixa. Esta ferramenta ajuda na automação de fluxo de processos',buttons:[{text:'Ver ao Vivo',link:'https://aura-ai-fernando.vercel.app',className:'btn-red'},{text:'Ver Código',link:'https://github.com/fernandodiass/AURA-AI',className:'btn-yellow'},{text:'Vamos Conversar?',link:'https://wa.me/556284468562',className:'btn-wpp'}]},{title:'Ecossistemas para Infoprodutos',cat:'Criação de Produtos Digitais',img:'img/projetos/mockups/info.webp',imgAlt:'Ecossistemas para Infoprodutos — design e web para e-books, cursos e produtos digitais',desc:'Estrutura completa de design e web para produtos digitais: e-books, cursos online e mentorias. Foco em autoridade, experiência de consumo premium e funil de vendas integrado.',buttons:[{text:'Ver Mais',link:'https://50-prompts-elite-para-whatsapp.vercel.app',className:'btn-red'},{text:'Vamos Conversar?',link:'https://wa.me/556284468562',className:'btn-wpp'}]}];const modalOverlay=document.getElementById('modalOverlay');const modalClose=document.getElementById('modalClose');let lastActiveElement=null;const projectsContainer=document.getElementById('projectsTrack')||document.querySelector('.projects-track');if(projectsContainer){projectsContainer.addEventListener('click',e=>{const card=e.target.closest('.project-card');if(!card)return;const idx=parseInt(card.getAttribute('data-project'),10);if(!isNaN(idx)){lastActiveElement=document.activeElement;openModal(idx)}});projectsContainer.addEventListener('keydown',e=>{if(e.key==='Enter'){const card=e.target.closest('.project-card');if(!card)return;const idx=parseInt(card.getAttribute('data-project'),10);if(!isNaN(idx)){e.preventDefault();lastActiveElement=document.activeElement;openModal(idx)}}})}
-function openModal(idx){const p=projectData[idx];if(!p)return;document.getElementById('modalTitle').textContent=p.title;document.getElementById('modalCat').textContent=p.cat;document.getElementById('modalDesc').textContent=p.desc;const imgBox=document.getElementById('modalImgBox');imgBox.innerHTML='';const images=[p.img,p.img2,p.img3];images.forEach(src=>{if(src&&src.trim()!==''){const im=document.createElement('img');im.src=src;im.alt=p.imgAlt||p.title;imgBox.appendChild(im)}});const actionsContainer=document.querySelector('.modal-actions');actionsContainer.innerHTML='';if(p.buttons&&Array.isArray(p.buttons)){p.buttons.slice(0,3).forEach(btn=>{if(btn.link&&btn.link!=='#'){const a=document.createElement('a');a.href=btn.link;a.target='_blank';a.rel='noopener noreferrer';a.textContent=btn.text;a.className=`btn ${btn.className || 'btn-primary'}`;actionsContainer.appendChild(a)}})}
-modalOverlay.classList.add('open');document.body.style.overflow='hidden';modalClose.focus()}
-function closeModal(){modalOverlay.classList.remove('open');document.body.style.overflow='';if(lastActiveElement)lastActiveElement.focus();}
-modalClose.addEventListener('click',closeModal);modalOverlay.addEventListener('click',e=>{if(e.target===modalOverlay)closeModal();});window.addEventListener('keydown',e=>{if(e.key==='Escape'&&modalOverlay.classList.contains('open'))closeModal();});const navAs=document.querySelectorAll('.nav-links a');document.querySelectorAll('section[id]').forEach(section=>{new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;const id=entry.target.id;navAs.forEach(a=>{const active=a.getAttribute('href')===`#${id}`;a.style.background=active?'var(--yellow)':'';a.style.color=active?'var(--black)':'';a.style.borderColor=active?'var(--black)':'';a.style.boxShadow=active?'2px 2px 0 var(--black)':''})})},{threshold:0.35}).observe(section)});document.querySelectorAll('a[href^="#"]').forEach(link=>{link.addEventListener('click',e=>{const dest=document.querySelector(link.getAttribute('href'));if(!dest)return;e.preventDefault();dest.scrollIntoView({behavior:'smooth',block:'start'})})});(function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;let isTrackpad=!1;window.addEventListener('wheel',e=>{isTrackpad=Math.abs(e.deltaY)<50||!Number.isInteger(e.deltaY)},{passive:!0});let scrollY=window.scrollY;let targetY=window.scrollY;let velocity=0;let rafId=null;let lastTime=0;let isNavigating=!1;const FRICTION=0.85;const MAX_VEL=200;function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v))}
-function maxScroll(){return document.body.scrollHeight-window.innerHeight}
-function tick(ts){const dt=Math.min((ts-lastTime)/16.67,3);lastTime=ts;const diff=targetY-scrollY;velocity=clamp(velocity*Math.pow(FRICTION,dt)+diff*0.14*dt,-MAX_VEL,MAX_VEL);scrollY+=velocity;if(Math.abs(diff)<0.5&&Math.abs(velocity)<0.5){scrollY=targetY;velocity=0;window.scrollTo(0,scrollY);rafId=null;return}
-scrollY=clamp(scrollY,0,maxScroll());window.scrollTo(0,scrollY);rafId=requestAnimationFrame(tick)}
-function start(){if(!rafId){lastTime=performance.now();rafId=requestAnimationFrame(tick)}}
-window.addEventListener('wheel',e=>{if(isTrackpad||isNavigating)return;e.preventDefault();const raw=e.deltaMode===1?e.deltaY*40:e.deltaMode===2?e.deltaY*window.innerHeight:e.deltaY;const step=clamp(raw*1.15,-500,500);targetY=clamp(targetY+step,0,maxScroll());start()},{passive:!1});window.addEventListener('scroll',()=>{if(!rafId){scrollY=window.scrollY;targetY=window.scrollY}},{passive:!0})})();(function(){const revealObs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObs.unobserve(entry.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal, .reveal-group').forEach(el=>revealObs.observe(el))})()
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navLinksEl = document.getElementById('navLinks');
+hamburgerBtn.addEventListener('click', () => {
+	const isOpen = navLinksEl.classList.toggle('open');
+	hamburgerBtn.setAttribute('aria-expanded', isOpen)
+});
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
+	navLinksEl.classList.remove('open');
+	hamburgerBtn.setAttribute('aria-expanded', 'false')
+}));
+const heroSlides = document.getElementById('heroSlides');
+const heroDots = document.querySelectorAll('.hero-dot');
+let heroIdx = 0;
+const heroTotal = 3;
+let heroTimer;
+
+function heroGo(idx) {
+	heroIdx = (idx + heroTotal) % heroTotal;
+	heroSlides.style.transform = `translateX(-${heroIdx * 100}%)`;
+	heroDots.forEach((d, i) => {
+		d.classList.toggle('active', i === heroIdx);
+		d.setAttribute('aria-selected', i === heroIdx)
+	})
+}
+
+function heroReset() {
+	clearInterval(heroTimer);
+	heroTimer = setInterval(() => heroGo(heroIdx + 1), 4500)
+}
+document.getElementById('heroPrev').addEventListener('click', () => {
+	heroGo(heroIdx - 1);
+	heroReset()
+});
+document.getElementById('heroNext').addEventListener('click', () => {
+	heroGo(heroIdx + 1);
+	heroReset()
+});
+heroDots.forEach(d => d.addEventListener('click', () => {
+	heroGo(+d.dataset.idx);
+	heroReset()
+}));
+heroReset();
+const viewport = document.getElementById('projViewport');
+const track = document.getElementById('projectsTrack');
+const cards = Array.from(track.querySelectorAll('.project-card'));
+const dotsWrap = document.getElementById('projDots');
+const GAP = 20;
+let projIdx = 0;
+let projVisible = 1;
+let projTimer;
+let projDots = [];
+
+function calcVisible() {
+	const vw = viewport.clientWidth;
+	if (vw >= 900) return 3;
+	if (vw >= 600) return 2;
+	return 1
+}
+
+function buildDots() {
+	dotsWrap.innerHTML = '';
+	projDots = [];
+	const pages = Math.ceil(cards.length / projVisible);
+	for (let i = 0; i < pages; i++) {
+		const d = document.createElement('div');
+		d.className = 'proj-dot' + (i === 0 ? ' active' : '');
+		d.setAttribute('role', 'tab');
+		d.setAttribute('aria-label', `Página ${i + 1} de projetos`);
+		d.addEventListener('click', () => {
+			projGo(i);
+			projReset()
+		});
+		dotsWrap.appendChild(d);
+		projDots.push(d)
+	}
+}
+
+function setCardWidth() {
+	projVisible = calcVisible();
+	const cw = Math.floor((viewport.clientWidth - GAP * (projVisible - 1)) / projVisible);
+	cards.forEach(c => {
+		c.style.setProperty('--card-w', cw + 'px');
+		c.style.width = cw + 'px';
+		c.style.minWidth = cw + 'px';
+		c.style.marginRight = GAP + 'px'
+	});
+	buildDots();
+	projGo(0)
+}
+
+function projGo(idx) {
+	const pages = Math.ceil(cards.length / projVisible);
+	projIdx = Math.max(0, Math.min(idx, pages - 1));
+	const cardW = cards[0].offsetWidth + GAP;
+	const offset = projIdx * projVisible * cardW;
+	track.style.transform = `translateX(-${offset}px)`;
+	projDots.forEach((d, i) => d.classList.toggle('active', i === projIdx))
+}
+
+function projReset() {
+	clearInterval(projTimer);
+	projTimer = setInterval(() => {
+		const pages = Math.ceil(cards.length / projVisible);
+		projGo((projIdx + 1) % pages)
+	}, 3500)
+}
+let isDrag = !1,
+	dragStartX = 0,
+	dragDeltaX = 0;
+track.addEventListener('mousedown', e => {
+	isDrag = !0;
+	dragStartX = e.clientX;
+	track.classList.add('dragging')
+});
+track.addEventListener('mouseleave', () => {
+	if (isDrag) finishDrag();
+});
+track.addEventListener('mouseup', e => {
+	if (isDrag) {
+		dragDeltaX = e.clientX - dragStartX;
+		finishDrag()
+	}
+});
+track.addEventListener('touchstart', e => {
+	isDrag = !0;
+	dragStartX = e.touches[0].clientX
+}, {
+	passive: !0
+});
+track.addEventListener('touchend', e => {
+	if (isDrag) {
+		dragDeltaX = e.changedTouches[0].clientX - dragStartX;
+		finishDrag()
+	}
+});
+
+function finishDrag() {
+	isDrag = !1;
+	track.classList.remove('dragging');
+	const pages = Math.ceil(cards.length / projVisible);
+	if (dragDeltaX < -50) projGo(Math.min(projIdx + 1, pages - 1));
+	else if (dragDeltaX > 50) projGo(Math.max(projIdx - 1, 0));
+	dragDeltaX = 0;
+	projReset()
+}
+window.addEventListener('resize', () => {
+	setCardWidth();
+	projReset()
+});
+setCardWidth();
+projReset();
+const projectData = [{
+	title: 'Identidade Estratégica',
+	cat: 'Identidade Visual e Papelaria',
+	img: 'img/projetos/mockups/identidade_visual_1.webp',
+	img2: 'img/projetos/mockups/identidade_visual_2.webp',
+	imgAlt: 'Projeto de Identidade Estratégica — identidade visual e papelaria, Fernando Dias Design',
+	desc: 'Criação de logotipos e padronização visual corporativa. Projetos desenvolvidos sob medida, incluindo a escolha de cores, fontes e o design de materiais institucionais como cartões de visita, timbrados e envelopes, garantindo consistência na apresentação da marca.',
+	buttons: [{
+		text: 'Ver Behance',
+		link: 'https://www.behance.net/fernando-dias',
+		className: 'btn-navy'
+	}, {
+		text: 'Vamos Conversar?',
+		link: 'https://wa.me/556284468562',
+		className: 'btn-wpp'
+	}]
+}, {
+	title: 'Landing Page de Alta Conversão',
+	cat: 'Sites e Landing Pages',
+	img: 'img/projetos/mockups/webdesign.webp',
+	imgAlt: 'Landing Page de Alta Conversão — site responsivo mobile-first, Fernando Dias, sites, webdesign, UI/UX',
+	desc: 'A NexusLP é uma Landing Page de última geração desenvolvida para infraestruturas de dados e dashboards de alta performance. O foco do projeto é proporcionar uma experiência visual imersiva, utilizando efeitos de vidro (glassmorphism), animações fluidas e uma estética "Dark Tech".',
+	buttons: [{
+		text: 'Ver ao Vivo',
+		link: 'https://nexuslp.vercel.app',
+		className: 'btn-red'
+	}, {
+		text: 'Ver Código',
+		link: 'https://github.com/fernandodiass/nexus-lp',
+		className: 'btn-yellow'
+	}, {
+		text: 'Vamos Conversar?',
+		link: 'https://wa.me/556284468562',
+		className: 'btn-wpp'
+	}]
+}, {
+	title: 'Assets de Performance',
+	cat: 'Pack Arts Comic: Estilo Retrô e HQ',
+	img: 'img/projetos/mockups/pack.webp',
+	imgAlt: 'Capa do Pack Arts Comic mostrando elementos gráficos e artes vetoriais editáveis no estilo retrô de histórias em quadrinhos e pop art.',
+	desc: 'Eleve o nível do seu design com um pacote exclusivo de artes e elementos gráficos inspirados no universo dos quadrinhos e da pop art. Desenvolvido estrategicamente para acelerar seu fluxo de trabalho criativo, este pack é extremamente versátil e perfeito para a personalização de canecas, pôsteres, quadros, cartões e muito mais.',
+	buttons: [{
+		text: 'Ver Mais',
+		link: 'https://fernandodiass.com.br/pack-arts-comic/',
+		className: 'btn-red'
+	}, {
+		text: 'Vamos Conversar?',
+		link: 'https://wa.me/556284468562',
+		className: 'btn-wpp'
+	}]
+}, {
+	title: 'Dashboards Inteligentes',
+	cat: 'Códigos & Sistemas',
+	img: 'img/projetos/mockups/dashboard.webp',
+	imgAlt: 'Dashboards Inteligentes — interface para gestão de dados operacionais com código',
+	desc: 'Lumina Dashboard é uma solução moderna de Business Intelligence para finanças pessoais ou empresariais. Esta aplicação transforma dados brutos em insights visuais através de gráficos interativos e uma interface limpa, focada em performance e usabilidade.',
+	buttons: [{
+		text: 'Ver ao Vivo',
+		link: 'https://lumina-dash.vercel.app',
+		className: 'btn-red'
+	}, {
+		text: 'Ver Código',
+		link: 'https://github.com/fernandodiass/Lumina-dashboard',
+		className: 'btn-yellow'
+	}, {
+		text: 'Vamos Conversar?',
+		link: 'https://wa.me/556284468562',
+		className: 'btn-wpp'
+	}]
+}, {
+	title: 'Automação de Fluxo com IA',
+	cat: 'Prompts & IA',
+	img: 'img/projetos/mockups/ia.webp',
+	imgAlt: 'Automação de Fluxo com Inteligência Artificial — engenharia de prompts e processos',
+	desc: 'Aura AI é um chatbot com arquitetura RAG (Retrieval-Augmented Generation) e API da Groq para fornecer respostas contextuais de latência ultra-baixa. Esta ferramenta ajuda na automação de fluxo de processos',
+	buttons: [{
+		text: 'Ver ao Vivo',
+		link: 'https://aura-ai-fernando.vercel.app',
+		className: 'btn-red'
+	}, {
+		text: 'Ver Código',
+		link: 'https://github.com/fernandodiass/AURA-AI',
+		className: 'btn-yellow'
+	}, {
+		text: 'Vamos Conversar?',
+		link: 'https://wa.me/556284468562',
+		className: 'btn-wpp'
+	}]
+}, {
+	title: 'Ecossistemas para Infoprodutos',
+	cat: 'Criação de Produtos Digitais',
+	img: 'img/projetos/mockups/info.webp',
+	imgAlt: 'Ecossistemas para Infoprodutos — design e web para e-books, cursos e produtos digitais',
+	desc: 'Estrutura completa de design e web para produtos digitais: e-books, cursos online e mentorias. Foco em autoridade, experiência de consumo premium e funil de vendas integrado.',
+	buttons: [{
+		text: 'Ver Mais',
+		link: 'https://50-prompts-elite-para-whatsapp.vercel.app',
+		className: 'btn-red'
+	}, {
+		text: 'Vamos Conversar?',
+		link: 'https://wa.me/556284468562',
+		className: 'btn-wpp'
+	}]
+}];
+const modalOverlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+let lastActiveElement = null;
+const projectsContainer = document.getElementById('projectsTrack') || document.querySelector('.projects-track');
+if (projectsContainer) {
+	projectsContainer.addEventListener('click', e => {
+		const card = e.target.closest('.project-card');
+		if (!card) return;
+		const idx = parseInt(card.getAttribute('data-project'), 10);
+		if (!isNaN(idx)) {
+			lastActiveElement = document.activeElement;
+			openModal(idx)
+		}
+	});
+	projectsContainer.addEventListener('keydown', e => {
+		if (e.key === 'Enter') {
+			const card = e.target.closest('.project-card');
+			if (!card) return;
+			const idx = parseInt(card.getAttribute('data-project'), 10);
+			if (!isNaN(idx)) {
+				e.preventDefault();
+				lastActiveElement = document.activeElement;
+				openModal(idx)
+			}
+		}
+	})
+}
+
+function openModal(idx) {
+	const p = projectData[idx];
+	if (!p) return;
+	document.getElementById('modalTitle').textContent = p.title;
+	document.getElementById('modalCat').textContent = p.cat;
+	document.getElementById('modalDesc').textContent = p.desc;
+	const imgBox = document.getElementById('modalImgBox');
+	imgBox.innerHTML = '';
+	const images = [p.img, p.img2, p.img3];
+	images.forEach(src => {
+		if (src && src.trim() !== '') {
+			const im = document.createElement('img');
+			im.src = src;
+			im.alt = p.imgAlt || p.title;
+			imgBox.appendChild(im)
+		}
+	});
+	const actionsContainer = document.querySelector('.modal-actions');
+	actionsContainer.innerHTML = '';
+	if (p.buttons && Array.isArray(p.buttons)) {
+		p.buttons.slice(0, 3).forEach(btn => {
+			if (btn.link && btn.link !== '#') {
+				const a = document.createElement('a');
+				a.href = btn.link;
+				a.target = '_blank';
+				a.rel = 'noopener noreferrer';
+				a.textContent = btn.text;
+				a.className = `btn ${btn.className || 'btn-primary'}`;
+				actionsContainer.appendChild(a)
+			}
+		})
+	}
+	modalOverlay.classList.add('open');
+	document.body.style.overflow = 'hidden';
+	modalClose.focus()
+}
+
+function closeModal() {
+	modalOverlay.classList.remove('open');
+	document.body.style.overflow = '';
+	if (lastActiveElement) lastActiveElement.focus();
+}
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', e => {
+	if (e.target === modalOverlay) closeModal();
+});
+window.addEventListener('keydown', e => {
+	if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
+});
+const navAs = document.querySelectorAll('.nav-links a');
+document.querySelectorAll('section[id]').forEach(section => {
+	new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+			if (!entry.isIntersecting) return;
+			const id = entry.target.id;
+			navAs.forEach(a => {
+				const active = a.getAttribute('href') === `#${id}`;
+				a.style.background = active ? 'var(--yellow)' : '';
+				a.style.color = active ? 'var(--black)' : '';
+				a.style.borderColor = active ? 'var(--black)' : '';
+				a.style.boxShadow = active ? '2px 2px 0 var(--black)' : ''
+			})
+		})
+	}, {
+		threshold: 0.35
+	}).observe(section)
+});
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+	link.addEventListener('click', e => {
+		const dest = document.querySelector(link.getAttribute('href'));
+		if (!dest) return;
+		e.preventDefault();
+		dest.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start'
+		})
+	})
+});
+(function() {
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	let isTrackpad = !1;
+	window.addEventListener('wheel', e => {
+		isTrackpad = Math.abs(e.deltaY) < 50 || !Number.isInteger(e.deltaY)
+	}, {
+		passive: !0
+	});
+	let scrollY = window.scrollY;
+	let targetY = window.scrollY;
+	let velocity = 0;
+	let rafId = null;
+	let lastTime = 0;
+	let isNavigating = !1;
+	const FRICTION = 0.85;
+	const MAX_VEL = 200;
+
+	function clamp(v, lo, hi) {
+		return Math.max(lo, Math.min(hi, v))
+	}
+
+	function maxScroll() {
+		return document.body.scrollHeight - window.innerHeight
+	}
+
+	function tick(ts) {
+		const dt = Math.min((ts - lastTime) / 16.67, 3);
+		lastTime = ts;
+		const diff = targetY - scrollY;
+		velocity = clamp(velocity * Math.pow(FRICTION, dt) + diff * 0.14 * dt, -MAX_VEL, MAX_VEL);
+		scrollY += velocity;
+		if (Math.abs(diff) < 0.5 && Math.abs(velocity) < 0.5) {
+			scrollY = targetY;
+			velocity = 0;
+			window.scrollTo(0, scrollY);
+			rafId = null;
+			return
+		}
+		scrollY = clamp(scrollY, 0, maxScroll());
+		window.scrollTo(0, scrollY);
+		rafId = requestAnimationFrame(tick)
+	}
+
+	function start() {
+		if (!rafId) {
+			lastTime = performance.now();
+			rafId = requestAnimationFrame(tick)
+		}
+	}
+	window.addEventListener('wheel', e => {
+		if (isTrackpad || isNavigating) return;
+		e.preventDefault();
+		const raw = e.deltaMode === 1 ? e.deltaY * 40 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
+		const step = clamp(raw * 1.15, -500, 500);
+		targetY = clamp(targetY + step, 0, maxScroll());
+		start()
+	}, {
+		passive: !1
+	});
+	window.addEventListener('scroll', () => {
+		if (!rafId) {
+			scrollY = window.scrollY;
+			targetY = window.scrollY
+		}
+	}, {
+		passive: !0
+	})
+})();
+(function() {
+	const revealObs = new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+				revealObs.unobserve(entry.target)
+			}
+		})
+	}, {
+		threshold: 0.15,
+		rootMargin: '0px 0px -40px 0px'
+	});
+	document.querySelectorAll('.reveal, .reveal-group').forEach(el => revealObs.observe(el))
+})()
