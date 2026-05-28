@@ -7,6 +7,7 @@
   --teal: #2A8080;
   --navy: #1A3A50;
   --black: #0D1218;
+  --black-retro: #1A1A1A;
   --white: #FAF4E8;
   --shadow-thick: 4px 4px 0px var(--black);
   --shadow-xl: 6px 6px 0px var(--black);
@@ -110,7 +111,7 @@ a {
   left: 0;
   right: 0;
   z-index: 900;
-  background: var(--navy);
+  background: var(--black-retro);
   border-bottom: var(--border);
   box-shadow: 0 4px 0 var(--black);
 }
@@ -133,8 +134,7 @@ a {
 
 .nav-logo-svg {
   width: 36px;
-  height: 36px;
-  border: 2px solid var(--yellow);
+  height: 36px;  
   border-radius: var(--radius);
   box-shadow: 2px 2px 0 var(--black);
   flex-shrink: 0;
@@ -151,7 +151,7 @@ a {
 .nav-links {
   display: flex;
   gap: 6px;
-  list-style: none;
+  list-style: none;  
 }
 
 .nav-links a {
@@ -160,7 +160,7 @@ a {
   letter-spacing: 1px;
   color: var(--cream);
   padding: 5px 13px;
-  border: 2px solid #fff0;
+  border: 2px solid rgba(239, 29, 6, 0);
   border-radius: var(--radius);
   transition: background .15s, color .15s, border-color .15s;
 }
@@ -168,7 +168,7 @@ a {
 .nav-links a:hover {
   background: var(--yellow);
   color: var(--black);
-  border-color: var(--black);
+  border-color: var(--red);
   box-shadow: 2px 2px 0 var(--black);
 }
 
@@ -341,14 +341,14 @@ a {
   justify-content: center;
   gap: 12px;
   width: 100%;
-  max-width: 420px;
+  max-width: 320px;
   min-height: 58px;
   padding: 14px 24px;
   font-family: var(--ff-title);
   font-size: clamp(.95rem, 2vw, 1.2rem);
   letter-spacing: 1px;
   text-align: center;
-  background: #25D366;
+  background: #119a43;
   color: var(--black);
   border: var(--border);
   border-radius: var(--radius);
@@ -705,12 +705,12 @@ a {
 .sb-em { background: var(--red); color: var(--white); }
 .sb-pin { background: var(--red); color: var(--white); }
 .sb-be { background: var(--navy); color: var(--white); }
-.sb-wha { background: #25D366; color: var(--white); } /* Ajustado para variável ou cor do wpp */
+.sb-wha { background: #119a43; color: var(--white); } /* Ajustado para variável ou cor do wpp */
 .sb-gh { background: var(--black); color: var(--cream); }
 
 /* FOOTER */
 footer {
-  background: var(--black);
+  background: var(--black-re);
   color: var(--cream);
   border-top: var(--border);
   padding: 48px 24px;
@@ -792,7 +792,7 @@ footer {
   bottom: 24px;
   right: 20px;
   z-index: 800;
-  background: #25D366;
+  background: #119a43;
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-xl);
@@ -891,7 +891,8 @@ footer {
   }
 
   .btn-wpp {
-    max-width: 420px;
+    font-size: clamp(.95rem, 2vw, 1.2rem);
+    max-width: 320px;
   }
 
   .about-avatar {
@@ -959,8 +960,8 @@ footer {
   }
 
   .btn-wpp {
-    max-width: 100%;
-    min-height: 60px;
+    max-width: 320px;
+    min-height: 58px;
     font-size: 1rem;
     padding: 14px 18px;
   }
