@@ -441,3 +441,32 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 	});
 	document.querySelectorAll('.reveal, .reveal-group').forEach(el => revealObs.observe(el))
 })()
+document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("lgpd-banner");
+    const btnAceitar = document.getElementById("btn-aceitar-cookies");
+    const btnRecusar = document.getElementById("btn-recusar-cookies");
+
+    // Verifica a escolha prévia do usuário
+    const consentimento = localStorage.getItem("cookies-consentimento");
+
+    if (consentimento === "aceito") {
+        ativarAnalytics();
+    } else if (consentimento === null) {
+        // Mostra o banner caso seja a primeira visita
+        banner.style.display = "block";
+    }
+
+    // Ação de Aceitar
+    btnAceitar.addEventListener("click", function () {
+        localStorage.setItem("cookies-consentimento", "aceito");
+        banner.style.display = "none";
+        ativarAnalytics(); // Ativa os scripts imediatamente
+    });
+
+    // Ação de Recusar
+    btnRecusar.addEventListener("click", function () {
+        localStorage.setItem("cookies-consentimento", "recusado");
+        banner.style.display = "none";
+        // O Analytics não é disparado nesta sessão
+    });
+});

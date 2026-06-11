@@ -80,13 +80,21 @@
 
     <!-- Preconnect prioritário -->
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCFX0V1NGB"></script>
-    <script>
+    <script type="text/plain" class="analytics-script" data-src="https://www.googletagmanager.com/gtag/js?id=G-TCFX0V1NGB"></script>
+<script>
+    function ativarAnalytics() {
+        // Carrega o script externo dinamicamente
+        const scriptAnalitico = document.querySelector('.analytics-script');
+        if (scriptAnalitico && !scriptAnalitico.src) {
+            scriptAnalitico.src = scriptAnalitico.getAttribute('data-src');
+        }
+        
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-TCFX0V1NGB', { anonymize_ip: true });
-    </script>
+    }
+</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -511,13 +519,14 @@
                 <div class="footer-about-logo" style="text-align:center">
                     <img style="width:20px;height:20px;" src="img/logo-footer.svg" alt="Logotipo Fernando Dias Design" width="20" height="20" loading="lazy" />
                     <p>Feito com ☕ e muito CSS</p>
-                </div>
-                <address style="font-style:normal;margin-top:8px; text-align:left;">        
-        Goiânia &mdash; Goiás, Brasil
-      </address>
+                </div>                
                 <p class="footer-copy">
-                    <small>© 2017–2026 Fernando Dias Design · Todos os direitos reservados ·</small>
-                </p>
+                    <small>© 2017–2026 Fernando Dias Design · Todos os direitos reservados.</small>
+                </p><br>
+                <p>
+                    <a href="politica-de-privacidade.html" style="color: #E8A820; text-decoration: none; margin-left: 0px; font-size: small;">Política de Privacidade</a> | 
+    <a href="termos-de-uso.html" style="color: #E8A820; text-decoration: none; margin-left: 0px; font-size: small;">Termos de Uso</a>
+                </p>                
             </div>
 
             <nav aria-label="Redes sociais de Fernando Dias">
@@ -543,10 +552,10 @@
                         </svg>
                         GitHub
                     </a>
-                </div>
-            </nav>
-
+                </div>                
+            </nav> 
         </div>
+        
     </footer>
 
     <!-- ============================================================
@@ -557,6 +566,16 @@
     </a>
 
     <script src="js/scripts.js" defer></script>
+
+    <div id="lgpd-banner" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 600px; background: #1A3A50; color: #fff; padding: 20px; border: 2px solid #E8A820; border-radius: 8px; z-index: 9999; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); font-family: sans-serif;">
+    <div style="font-size: 14px; line-height: 1.5; margin-bottom: 15px;">
+        Este site utiliza cookies do Google Analytics para entender como os visitantes interagem com o portfólio. Ao clicar em "Aceitar", você concorda com essa coleta de dados de navegação conforme nossa <a href="/politica-de-privacidade" style="color: #E8A820; text-decoration: underline;">Política de Privacidade</a>.
+    </div>
+    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button id="btn-recusar-cookies" style="background: transparent; color: #fff; border: 1px solid #fff; padding: 8px 16px; cursor: pointer; border-radius: 4px; font-weight: bold;">Recusar</button>
+        <button id="btn-aceitar-cookies" style="background: #E8A820; color: #1A3A50; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; font-weight: bold;">Aceitar</button>
+    </div>
+</div>
 </body>
 
 </html>
