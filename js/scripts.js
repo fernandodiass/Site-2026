@@ -152,8 +152,7 @@ projReset();
 const projectData = [{
 	title: 'Identidade Estratégica',
 	cat: 'Identidade Visual e Papelaria',
-	img: 'img/projetos/mockups/identidade_visual_1.webp',
-	img2: 'img/projetos/mockups/identidade_visual_2.webp',
+	img: 'img/projetos/mockups/identidade_visual.webp',	
 	imgAlt: 'Projeto de Identidade Estratégica — identidade visual e papelaria, Fernando Dias Design',
 	desc: 'Criação de logotipos e padronização visual corporativa. Projetos desenvolvidos sob medida, incluindo a escolha de cores, fontes e o design de materiais institucionais como cartões de visita, timbrados e envelopes, garantindo consistência na apresentação da marca.',
 	buttons: [{
